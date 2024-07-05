@@ -15,7 +15,7 @@ spec:
   strategy:
     type: Docker
     dockerStrategy:
-      dockerfilePath: Dockerfile-redhat  
+      dockerfilePath: Dockerfile-tomcat  
   triggers:
     - type: ConfigChange
     
