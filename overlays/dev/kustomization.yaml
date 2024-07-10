@@ -18,7 +18,6 @@ configMapGenerator:
 
 secretGenerator:
 - name: login-app-secret
-  namespace: walid
   envs:
   - loginapp.secret
   type: Opaque
