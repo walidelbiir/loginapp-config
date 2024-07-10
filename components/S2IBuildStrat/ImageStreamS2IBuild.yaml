@@ -1,7 +1,7 @@
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  name: login-app-s2i-build-image
+  name: login-app-s2i-strat
 spec:
   tags:
     - name: latest
