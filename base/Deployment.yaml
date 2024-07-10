@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: login-app
-          image: image-registry.openshift-image-registry.svc:5000/walid/login-app:latest
+          image: image-registry.openshift-image-registry.svc:5000/loginapp-dev/login-app-docker-strat
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
