@@ -1,0 +1,19 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: login-app-build-s2i
+spec:
+  source:
+    git:
+      uri: 'https://github.com/walidelbiir/redhat-loginapp.git'
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: login-app-custom-builder-image:latest
+    type: Source
+  output:
+    to:
+      kind: ImageStreamTag
+      name: login-app-s2i-strat:latest

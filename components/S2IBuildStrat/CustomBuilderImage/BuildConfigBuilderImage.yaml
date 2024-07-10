@@ -1,0 +1,21 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: login-app-custom-builder-image
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: login-app-custom-builder-image:latest
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/walidelbiir/redhat-loginapp.git'
+      ref: "main"
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile-customBuilder
+  triggers:
+    - type: ConfigChange
+    

@@ -1,0 +1,14 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: login-app-docker-build-image
+spec:
+  tags:
+    - name: latest
+      from:
+        kind: DockerImage
+        name: login-app-docker-strat:latest
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: Source

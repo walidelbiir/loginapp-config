@@ -1,12 +1,12 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: login-app-build
+  name: login-app-build-docker
 spec:
   output:
     to:
       kind: ImageStreamTag
-      name: login-app:latest
+      name: login-app-docker-strat:latest
   source:
     type: Git
     git:
