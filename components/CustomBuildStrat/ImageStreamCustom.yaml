@@ -1,13 +1,13 @@
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  name: login-app-custom-builder-image
+  name: login-app-custom-strat
 spec:
   tags:
     - name: latest
       from:
         kind: DockerImage
-        name: login-app-custom-builder-image:latest
+        name: login-app-custom-strat:latest
       importPolicy:
         scheduled: true
       referencePolicy:

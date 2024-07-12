@@ -1,0 +1,19 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: login-app-custom-strat-build
+spec:
+  source:
+    git:
+      uri: 'https://github.com/walidelbiir/redhat-loginapp.git'
+  serviceAccount: builder
+  strategy:
+    type: Custom
+    customStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'login-app-custom-image:latest'
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'login-app-custom-strat:latest'

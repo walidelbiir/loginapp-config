@@ -1,12 +1,12 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: login-app-custom-builder-image
+  name: login-app-custom-image
 spec:
   output:
     to:
       kind: ImageStreamTag
-      name: login-app-custom-builder-image:latest
+      name: login-app-custom-image:latest
   source:
     type: Git
     git:
@@ -15,7 +15,7 @@ spec:
   strategy:
     type: Docker
     dockerStrategy:
-      dockerfilePath: Dockerfile-customBuilder
+      dockerfilePath: Dockerfile-custom  
+  serviceAccount: builder
   triggers:
     - type: ConfigChange
-    

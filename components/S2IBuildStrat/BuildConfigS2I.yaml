@@ -10,9 +10,10 @@ spec:
   strategy:
     sourceStrategy:
       from:
-        kind: ImageStreamTag
-        name: login-app-custom-builder-image:latest
+        kind: DockerImage
+        name: 'image-registry.openshift-image-registry.svc:5000/openshift/jboss-eap-xp4-openjdk11-openshift@sha256:4d20585cce41e200138a624ecb0c5c15e78ba56578e2a223a0c1f1dabb8a64d7'
     type: Source
+  serviceAccount: builder
   output:
     to:
       kind: ImageStreamTag
