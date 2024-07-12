@@ -13,6 +13,22 @@ spec:
       from:
         kind: ImageStreamTag
         name: 'login-app-custom-image:latest'
+      env:
+        - name: REDHAT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: redhat-login-credentials
+              key: USERNAME
+        - name: REDHAT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redhat-login-credentials
+              key: PASSWORD
+        - name: SERVICE_ACCOUNT
+          valueFrom:
+            secretKeyRef:
+              name: redhat-login-credentials
+              key: SERVICE_ACCOUNT
   output:
     to:
       kind: ImageStreamTag

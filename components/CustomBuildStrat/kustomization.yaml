@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+  disableNameSuffixHash: true
+  
+resources:
+  - BuildConfigCustomStrat.yaml
+  - ImageStreamCustom.yaml
+  - ./CustomImageBuilder/ImageStreamCustom.yaml
+  - ./CustomImageBuilder/BuildConfigCustomImage.yaml
+
+secretGenerator:
+- name: redhat-login-credentials
+  envs:
+  - redhat-login.credentials
+  type: Opaque
