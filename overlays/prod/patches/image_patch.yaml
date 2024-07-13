@@ -9,4 +9,4 @@ spec:
     spec:
       containers:
         - name: login-app
-          image: image-registry.openshift-image-registry.svc:5000/loginapp-dev/login-app-custom-strat:latest
+          image: image-registry.openshift-image-registry.svc:5000/loginapp-prod/login-app-custom-strat:latest

@@ -11,4 +11,5 @@ resources:
 
 patches:
 - path: ./patches/replica_count_patch.yaml
+- path: ./patches/image_patch.yaml
 
