@@ -2,6 +2,7 @@ apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
   name: login-app-custom-strat-build
+  namespace: loginapp-dev
 spec:
   source:
     git:

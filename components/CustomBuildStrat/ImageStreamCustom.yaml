@@ -2,6 +2,7 @@ apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
   name: login-app-custom-strat
+  namespace: loginapp-dev
 spec:
   tags:
     - name: latest

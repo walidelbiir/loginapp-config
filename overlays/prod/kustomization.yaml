@@ -7,7 +7,7 @@ generatorOptions:
 namespace: loginapp-prod
 
 resources:
-- ../dev
+- ../../base
 
 patches:
 - path: ./patches/replica_count_patch.yaml

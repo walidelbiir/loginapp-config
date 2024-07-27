@@ -2,6 +2,7 @@ apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
   name: login-app-custom-image
+  namespace: loginapp-dev
 spec:
   output:
     to:

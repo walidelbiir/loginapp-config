@@ -1,0 +1,51 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: loginapp-dev-pipeline
+
+spec:
+
+  params:
+    - name: URL
+      type: string
+    - name: TLSVERIFY
+      type: string
+    - name: IMAGE
+      type: string
+    #- name: BUILD_EXTRA_ARGS
+    #  type: string
+
+  workspaces:
+    - name: sourceCode
+      description: This workspace contains the repo files
+    - name: dockerconfig
+      description: This workspace contains the dockerconfig.json file for the buildah task
+
+  tasks:
+
+    - name: git-clone
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: $(params.URL)
+      workspaces:
+        - name: output
+          workspace: sourceCode
+    
+    - name: build-and-push
+      taskRef:
+        name: buildah
+      runAfter: ["git-clone"]
+      params:
+        - name: TLSVERIFY
+          value: $(params.TLSVERIFY)
+        - name: IMAGE
+          value: $(params.IMAGE)
+        #- name: BUILD_EXTRA_ARGS
+        #  value: $(params.BUILD_EXTRA_ARGS)
+      workspaces:
+        - name: source
+          workspace: sourceCode
+        - name: dockerconfig
+          workspace: dockerconfig

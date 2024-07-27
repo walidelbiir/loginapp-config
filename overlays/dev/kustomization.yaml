@@ -8,21 +8,5 @@ namespace: loginapp-dev
 
 resources:
 - ../../base
+- namespace.yaml
 
-configMapGenerator:
-- name: login-app-config-map
-  envs:
-  - loginapp.properties
-  options:
-    labels:
-      app: login-app
-
-
-secretGenerator:
-- name: login-app-secret
-  envs:
-  - loginapp.secret
-  type: Opaque
-  options:
-    labels:
-      app: login-app
