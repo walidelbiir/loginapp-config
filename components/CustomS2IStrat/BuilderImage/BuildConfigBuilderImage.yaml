@@ -1,13 +1,13 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: login-app-build-docker
+  name: login-app-build-s2i-builder
   namespace: loginapp-dev
 spec:
   output:
     to:
       kind: ImageStreamTag
-      name: login-app-docker-strat:latest
+      name: login-app-s2i-builder:latest
   source:
     type: Git
     git:
@@ -15,11 +15,10 @@ spec:
       ref: "main"
     sourceSecret:
       name: repo-at-github
-  serviceAccount : builder
   strategy:
     type: Docker
     dockerStrategy:
-      dockerfilePath: Dockerfile-tomcat 
+      dockerfilePath: Dockerfile-customBuilder  
   triggers:
     - type: ConfigChange
     

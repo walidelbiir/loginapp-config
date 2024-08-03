@@ -1,0 +1,15 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: login-app-s2i-custom
+  namespace: loginapp-dev
+spec:
+  tags:
+    - name: latest
+      from:
+        kind: DockerImage
+        name: login-app-s2i-custom:latest
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: Source

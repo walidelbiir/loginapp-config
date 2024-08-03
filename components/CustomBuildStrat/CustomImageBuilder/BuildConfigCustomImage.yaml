@@ -11,8 +11,10 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/walidelbiir/redhat-loginapp.git'
+      uri: git@github.com:walidelbiir/redhat-loginapp.git
       ref: "main"
+    sourceSecret:
+      name: repo-at-github
   strategy:
     type: Docker
     dockerStrategy:

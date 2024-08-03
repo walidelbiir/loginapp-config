@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: loginapp-custom
+namespace: loginapp-customs2i
 
 generatorOptions:
   disableNameSuffixHash: true

@@ -5,6 +5,7 @@ metadata:
 spec:
   pipelineRef:
     name: loginapp-dev-pipeline
+  serviceAccountName: pipeline
   params:
     - name: URL
       value: https://github.com/walidelbiir/redhat-loginapp.git
@@ -12,11 +13,6 @@ spec:
       value: false
     - name: IMAGE
       value: image-registry.openshift-image-registry.svc:5000/loginapp-dev/tekton-pipeline-image:latest
-    #- name: BUILD_EXTRA_ARGS
-    #  value: --creds=walid1243:BirBir123Bir123
-  taskRunSpecs:
-    - pipelineTaskName: build-and-push
-      taskServiceAccountName: priviliged-sa
   workspaces:
     - name: sourceCode
       volumeClaimTemplate:
@@ -26,6 +22,9 @@ spec:
           resources:
             requests:
               storage: 1Gi
-    - name: dockerconfig
+    - name: ssh-creds
       secret:
-        secretName: dockerconfig-secret
+        secretName: repo-at-github
+    #- name: dockerconfig
+    #  secret:
+    #    secretName: dockerconfig-secret

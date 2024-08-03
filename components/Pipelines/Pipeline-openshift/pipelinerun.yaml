@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: build-openshift-pipeline
+spec:
+  pipelineRef:
+    name: build-openshift-pipeline
+  serviceAccountName: pipeline
+  params:
+    - name: SCRIPT
+      value: oc start-build login-app-build-docker
+    - name: URL
+      value:

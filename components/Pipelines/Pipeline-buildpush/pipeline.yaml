@@ -12,14 +12,15 @@ spec:
       type: string
     - name: IMAGE
       type: string
-    #- name: BUILD_EXTRA_ARGS
-    #  type: string
+
 
   workspaces:
     - name: sourceCode
       description: This workspace contains the repo files
-    - name: dockerconfig
-      description: This workspace contains the dockerconfig.json file for the buildah task
+    - name: ssh-creds
+      description: This workspace contains the ssh key for the git repo
+    #- name: dockerconfig
+    #  description: This workspace contains the dockerconfig.json file for the buildah task
 
   tasks:
 
@@ -32,6 +33,8 @@ spec:
       workspaces:
         - name: output
           workspace: sourceCode
+        - name: ssh-directory
+          workspace: ssh-creds
     
     - name: build-and-push
       taskRef:
@@ -42,10 +45,8 @@ spec:
           value: $(params.TLSVERIFY)
         - name: IMAGE
           value: $(params.IMAGE)
-        #- name: BUILD_EXTRA_ARGS
-        #  value: $(params.BUILD_EXTRA_ARGS)
       workspaces:
         - name: source
           workspace: sourceCode
-        - name: dockerconfig
-          workspace: dockerconfig
+      #  - name: dockerconfig
+      #    workspace: dockerconfig

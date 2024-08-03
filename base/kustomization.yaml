@@ -3,10 +3,13 @@ kind: Kustomization
 
 namespace: loginapp-dev
 
+generatorOptions:
+  disableNameSuffixHash: true
+
 resources:
-  - ./Service.yaml
-  - ./Route.yaml
-  - ./Deployment.yaml
+  - ./LoginApp/
+  - ./Database/
+  - ./ssh-git-secret.yaml
 
 configMapGenerator:
 - name: login-app-config-map
@@ -25,3 +28,7 @@ secretGenerator:
   options:
     labels:
       app: login-app
+- name: mysql
+  envs:
+  - database.secret
+  type: Opaque

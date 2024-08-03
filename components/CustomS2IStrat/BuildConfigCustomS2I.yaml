@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: login-app-build-s2i
+  name: login-app-build-s2i-custom
   namespace: loginapp-dev
 spec:
   source:
@@ -13,11 +13,11 @@ spec:
   strategy:
     sourceStrategy:
       from:
-        kind: DockerImage
-        name: 'image-registry.openshift-image-registry.svc:5000/openshift/jboss-eap-xp4-openjdk11-openshift@sha256:4d20585cce41e200138a624ecb0c5c15e78ba56578e2a223a0c1f1dabb8a64d7'
+        kind: ImageStreamTag
+        name: login-app-s2i-builder:latest
     type: Source
   serviceAccount: builder
   output:
     to:
       kind: ImageStreamTag
-      name: login-app-s2i-strat:latest
+      name: login-app-s2i-custom:latest

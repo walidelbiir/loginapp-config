@@ -1,0 +1,47 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-openshift-pipeline
+
+spec:
+
+  params:
+    - name: SCRIPT
+      type: string
+    - name: URL
+      type: string
+    - name: TLSVERIFY
+      type: string
+
+  workspaces:
+    - name: manifest-dir
+      description: This workspace contains the yaml files
+    - name: ssh-creds
+      description: This workspace contains the ssh key for the git repo
+
+
+  tasks:
+  
+    - name: fetch-source
+      taskRef:
+        name: git-clone
+      params:
+        - name: URL
+          value: $(params.URL)
+        - name: TLSVERIFY
+          value: $(params.TLSVERIFY)
+      workspaces:
+        - name: ssh-directory
+          workspace: ssh-creds
+        - name: output
+          workspace: manifest-dir
+
+    - name: execute-build
+      taskRef:
+        name: openshift-client
+      params:
+        - name: SCRIPT
+          value: $(params.SCRIPT)
+      workspaces:
+        - name: manifest-dir
+          workspace: manifest-dir
