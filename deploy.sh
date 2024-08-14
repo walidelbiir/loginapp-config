@@ -28,7 +28,7 @@ else
   oc create project $NAMESPACE
 fi
 
-oc create clusterrolebinding default-image-puller-$NAMESPACE --clusterrole=system:image-puller --serviceaccount=$NAMESPACE:default
+#oc create clusterrolebinding default-image-puller-$NAMESPACE --clusterrole=system:image-puller --serviceaccount=$NAMESPACE:default
 
 oc apply -k $KUSTOMIZE_DIR
 
