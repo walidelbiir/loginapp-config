@@ -25,7 +25,7 @@ if kubectl get namespace $NAMESPACE > /dev/null 2>&1; then
   echo "Namespace $NAMESPACE already exists."
 else
   echo "Namespace $NAMESPACE does not exist. Creating..."
-  oc create namespace $NAMESPACE
+  oc create project $NAMESPACE
 fi
 
 oc create clusterrolebinding default-image-puller-$NAMESPACE --clusterrole=system:image-puller --serviceaccount=$NAMESPACE:default
