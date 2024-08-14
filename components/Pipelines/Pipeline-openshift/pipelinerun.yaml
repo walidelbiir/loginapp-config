@@ -10,4 +10,15 @@ spec:
     - name: SCRIPT
       value: oc start-build login-app-build-docker
     - name: URL
-      value:
+      value: git@github.com:walidelbiir/redhat-loginapp.git
+    - name: TLSVERIFY
+      value: false
+  workspaces:
+    - name: sourceCode
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi

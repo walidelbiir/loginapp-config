@@ -16,12 +16,12 @@ spec:
   workspaces:
     - name: manifest-dir
       description: This workspace contains the yaml files
-    - name: ssh-creds
-      description: This workspace contains the ssh key for the git repo
+    #- name: ssh-creds
+    #  description: This workspace contains the ssh key for the git repo
 
 
   tasks:
-  
+
     - name: fetch-source
       taskRef:
         name: git-clone
@@ -31,8 +31,8 @@ spec:
         - name: TLSVERIFY
           value: $(params.TLSVERIFY)
       workspaces:
-        - name: ssh-directory
-          workspace: ssh-creds
+        #- name: ssh-directory
+        #  workspace: ssh-creds
         - name: output
           workspace: manifest-dir
 

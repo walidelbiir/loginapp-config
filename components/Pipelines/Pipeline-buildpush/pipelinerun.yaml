@@ -8,7 +8,7 @@ spec:
   serviceAccountName: pipeline
   params:
     - name: URL
-      value: https://github.com/walidelbiir/redhat-loginapp.git
+      value: git@github.com:walidelbiir/redhat-loginapp.git
     - name: TLSVERIFY
       value: false
     - name: IMAGE
@@ -22,9 +22,9 @@ spec:
           resources:
             requests:
               storage: 1Gi
-    - name: ssh-creds
-      secret:
-        secretName: repo-at-github
+    #- name: ssh-creds
+    #  secret:
+    #    secretName: repo-at-github
     #- name: dockerconfig
     #  secret:
     #    secretName: dockerconfig-secret

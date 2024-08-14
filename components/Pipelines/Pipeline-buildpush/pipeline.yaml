@@ -17,8 +17,8 @@ spec:
   workspaces:
     - name: sourceCode
       description: This workspace contains the repo files
-    - name: ssh-creds
-      description: This workspace contains the ssh key for the git repo
+    #- name: ssh-creds
+    #  description: This workspace contains the ssh key for the git repo
     #- name: dockerconfig
     #  description: This workspace contains the dockerconfig.json file for the buildah task
 
@@ -33,8 +33,8 @@ spec:
       workspaces:
         - name: output
           workspace: sourceCode
-        - name: ssh-directory
-          workspace: ssh-creds
+      #  - name: ssh-directory
+      #    workspace: ssh-creds
     
     - name: build-and-push
       taskRef:

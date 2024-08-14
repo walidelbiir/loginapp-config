@@ -9,7 +9,6 @@ generatorOptions:
 resources:
   - ./LoginApp/
   - ./Database/
-  - ./ssh-git-secret.yaml
 
 configMapGenerator:
 - name: login-app-config-map
