@@ -13,8 +13,9 @@ spec:
   strategy:
     sourceStrategy:
       from:
-        kind: DockerImage
-        name: "image-registry.openshift-image-registry.svc:5000/loginapp-dev/eap-xp4-openjdk11-openshift-rhel8@sha256:836e952848c6226aa916e3767282d238012c6ad30cba381b08a8d120d9c521ff"
+        kind: ImageStreamTag
+        name: "eap-xp4-openjdk11-openshift-rhel8"
+        namespace: loginapp-dev
     type: Source
   serviceAccount: builder
   output:
