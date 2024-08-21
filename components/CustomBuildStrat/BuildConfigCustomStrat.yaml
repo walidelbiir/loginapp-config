@@ -7,6 +7,7 @@ spec:
   source:
     git:
       uri: git@github.com:walidelbiir/redhat-loginapp.git
+      type: Git
     sourceSecret:
       name: repo-at-github
   serviceAccount: builder
