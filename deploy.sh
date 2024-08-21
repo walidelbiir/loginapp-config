@@ -28,7 +28,14 @@ else
   kubectl create namespace $NAMESPACE
 fi
 
-oc create clusterrolebinding default-image-puller-$NAMESPACE --clusterrole=system:image-puller --serviceaccount=$NAMESPACE:default
+CLUSTERROLEBINDING_NAME="default-image-puller-$NAMESPACE"
+
+if ! oc get clusterrolebinding "$CLUSTERROLEBINDING_NAME" > /dev/null 2>&1; then
+  echo "ClusterRoleBinding $CLUSTERROLEBINDING_NAME does not exist. Creating..."
+  oc create clusterrolebinding "$CLUSTERROLEBINDING_NAME" --clusterrole=system:image-puller --serviceaccount=$NAMESPACE:default
+else
+  echo "ClusterRoleBinding $CLUSTERROLEBINDING_NAME already exists."
+fi
 
 oc apply -k $KUSTOMIZE_DIR
 
