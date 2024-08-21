@@ -14,7 +14,7 @@ spec:
     sourceStrategy:
       from:
         kind: DockerImage
-        name: "image-registry.openshift-image-registry.svc:5000/loginapp-dev/eap-xp4-openjdk11-openshift-rhel8"
+        name: "image-registry.openshift-image-registry.svc:5000/loginapp-dev/eap-xp4-openjdk11-openshift-rhel8:4.0-68.1721172741"
     type: Source
   serviceAccount: builder
   output:
