@@ -2,6 +2,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mysql-custom-s2i-pvc
-
+  namespace: loginapp-dev
 spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
   storageClassName: mysql-custom-s2i

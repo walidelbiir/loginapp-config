@@ -8,15 +8,13 @@ generatorOptions:
 
 resources:
 - ../../base
+- ./pv.yaml
+- ./pvc.yaml
 
+excludes:
+  - ../../base/database/pv.yaml
+  - ../../base/database/mysql-pvc.yaml
 patches:
 - path: ./patches/image_patch.yaml
-- path: ./patches/pv_patch.yaml
-  target: 
-    kind: PersistentVolume
-    name: mysql-docker-pv
-- path: ./patches/pvc_patch.yaml
-  target:
-    kind: PersistentVolumeClain
-    name: mysql-docker-pv
+
 

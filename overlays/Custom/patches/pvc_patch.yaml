@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-custom-pvc
-
-spec:
-  storageClassName: mysql-custom

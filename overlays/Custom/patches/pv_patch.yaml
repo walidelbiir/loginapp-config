@@ -1,9 +1,0 @@
-kind: PersistentVolume
-apiVersion: v1
-metadata:
-  name: mysql-custom-pv
-  
-spec: 
- storageClassName: mysql-custom
- nfs:
-  path: /mnt/data/nfs/mysql-custom-pv
