@@ -5,8 +5,8 @@ metadata:
   namespace: loginapp-dev
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
-      storage: 100Gi
+      storage: 1Gi
   storageClassName: mysql-storage
