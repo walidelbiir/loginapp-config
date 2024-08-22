@@ -40,5 +40,5 @@ fi
 
 oc apply -k $KUSTOMIZE_DIR
 
-chmod 777 /mnt/data/nfs/*
+sudo chmod 777 /mnt/data/nfs/*
 
