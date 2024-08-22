@@ -11,5 +11,5 @@ spec:
     spec:
       volumes:
         - name: mysql-data
-        persistentVolumeClaim:
-          claimName: mysql-custom-s2i-pvc
+          persistentVolumeClaim:
+            claimName: mysql-custom-s2i-pvc
