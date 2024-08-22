@@ -11,14 +11,5 @@ resources:
 
 patches:
 - path: ./patches/image_patch.yaml
-- path: ./patches/pv_patch.yaml
-  target: 
-    kind: PersistentVolume
-    metadata:
-      name: mysql-docker-pv
-- path: ./patches/pvc_patch.yaml
-  target:
-    kind: PersistentVolumeClaim
-    metadata:
-      name: mysql-docker-pvc
+
 
