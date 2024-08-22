@@ -14,12 +14,10 @@ patches:
 - path: ./patches/pv_patch.yaml
   target: 
     kind: PersistentVolume
-    apiVersion: v1
     metadata:
       name: mysql-docker-pv
 - path: ./patches/pvc_patch.yaml
   target:
-    apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
       name: mysql-docker-pvc
