@@ -1,7 +1,8 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: loginapp-dev-pipeline-run
+  name: loginapp-dev-pipeline-run-test
+  namespace: loginapp-dev
 spec:
   pipelineRef:
     name: loginapp-dev-pipeline

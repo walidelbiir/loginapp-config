@@ -27,6 +27,7 @@ spec:
     - name: git-clone
       taskRef:
         name: git-clone
+        kind: ClusterTask
       params:
         - name: url
           value: $(params.URL)
@@ -39,6 +40,7 @@ spec:
     - name: build-and-push
       taskRef:
         name: buildah
+        kind: ClusterTask
       runAfter: ["git-clone"]
       params:
         - name: TLSVERIFY
