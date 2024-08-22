@@ -8,6 +8,8 @@ generatorOptions:
 
 resources:
 - ../../base
+- ./pv.yaml
+- ./pvc.yaml
 
 patches:
 - path: ./patches/image_patch.yaml
