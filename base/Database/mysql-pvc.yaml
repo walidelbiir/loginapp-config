@@ -9,4 +9,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClass: nfs-dynamic
+  storageClassName: nfs-dynamic
