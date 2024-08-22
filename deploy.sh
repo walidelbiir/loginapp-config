@@ -13,9 +13,7 @@ KUSTOMIZE_DIR=$1
 
 
 NAMESPACE=$(yq eval '.namespace' $KUSTOMIZE_DIR/kustomization.yaml)
-BUILD_TYPE= ${NAMESPACE:8}
-PV_NAME=mysql-$BUILD_TYPE-pv
-cat PV_NAME
+
 
 
 if [ -z "$NAMESPACE" ]; then
@@ -42,5 +40,5 @@ fi
 
 oc apply -k $KUSTOMIZE_DIR
 
-chmod 777 /mnt/data/nfs/$PV_NAME
+chmod 777 /mnt/data/nfs/*
 
