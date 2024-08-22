@@ -11,5 +11,4 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: mysql-storage
   volumeMode: Filesystem
