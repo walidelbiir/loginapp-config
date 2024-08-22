@@ -5,3 +5,5 @@ metadata:
   
 spec: 
  storageClassName: mysql-custom
+ nfs:
+  path: /mnt/data/nfs/mysql-custom-pv

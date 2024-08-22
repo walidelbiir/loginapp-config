@@ -5,3 +5,5 @@ metadata:
 
 spec:
   storageClassName: mysql-s2i
+  nfs:
+  path: /mnt/data/nfs/mysql-s2i-pv
