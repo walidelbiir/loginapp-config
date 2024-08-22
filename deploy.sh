@@ -13,7 +13,8 @@ KUSTOMIZE_DIR=$1
 
 
 NAMESPACE=$(yq eval '.namespace' $KUSTOMIZE_DIR/kustomization.yaml)
-PV_NAME=mysql-${$NAMESPACE:8}-pv
+BUILD_TYPE= ${NAMESPACE:8}
+PV_NAME=mysql-$BUILD_TYPE-pv
 cat PV_NAME
 
 
