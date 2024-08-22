@@ -12,7 +12,7 @@ resources:
 - ./pvc.yaml
 
 excludes:
-  - ../../base/database/pv.yaml
+  - ../../base/database/mysql-pv.yaml
   - ../../base/database/mysql-pvc.yaml
 patches:
 - path: ./patches/image_patch.yaml
