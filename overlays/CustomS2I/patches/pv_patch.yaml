@@ -1,0 +1,7 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mysql-custom-s2i-pv
+  
+spec: 
+ storageClassName: mysql-custom-s2i

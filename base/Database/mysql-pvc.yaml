@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql
+  name: mysql-docker-pvc
   namespace: loginapp-dev
 spec:
   accessModes:
@@ -9,4 +9,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: nfs-dynamic
+  storageClassName: mysql-docker
