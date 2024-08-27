@@ -11,7 +11,7 @@ spec:
       value: |
         #!/bin/bash
         set -e
-        
+
         chmod +x build-script.sh
         build-script.sh
         
@@ -28,3 +28,4 @@ spec:
           resources:
             requests:
               storage: 1Gi
+          storageClassName: openshift-build-pipeline-pv
