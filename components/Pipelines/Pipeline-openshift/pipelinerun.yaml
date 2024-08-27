@@ -17,8 +17,6 @@ spec:
         
     - name: URL
       value: git@github.com:walidelbiir/loginapp-config.git
-    - name: TLSVERIFY
-      value: false
   workspaces:
     - name: manifest-dir
       volumeClaimTemplate:

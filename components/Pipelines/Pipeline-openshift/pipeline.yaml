@@ -10,8 +10,6 @@ spec:
       type: string
     - name: URL
       type: string
-    - name: TLSVERIFY
-      type: string
 
   workspaces:
     - name: manifest-dir
@@ -29,8 +27,6 @@ spec:
       params:
         - name: url
           value: $(params.URL)
-        - name: TLSVERIFY
-          value: $(params.TLSVERIFY)
       workspaces:
         #- name: ssh-directory
         #  workspace: ssh-creds
