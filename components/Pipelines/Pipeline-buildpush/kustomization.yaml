@@ -7,5 +7,4 @@ generatorOptions:
 resources:
   - pipeline.yaml
   - pipelinerun.yaml
-  - dockerconfigsecret.yaml
   - pv.yaml
