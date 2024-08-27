@@ -20,7 +20,7 @@ spec:
     - name: TLSVERIFY
       value: false
   workspaces:
-    - name: sourceCode
+    - name: manifest-dir
       volumeClaimTemplate:
         spec:
           accessModes:
