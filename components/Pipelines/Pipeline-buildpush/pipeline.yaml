@@ -17,30 +17,23 @@ spec:
   workspaces:
     - name: sourceCode
       description: This workspace contains the repo files
-    #- name: ssh-creds
-    #  description: This workspace contains the ssh key for the git repo
-    #- name: dockerconfig
-    #  description: This workspace contains the dockerconfig.json file for the buildah task
+
 
   tasks:
 
     - name: git-clone
       taskRef:
         name: git-clone
-        kind: ClusterTask
       params:
         - name: url
           value: $(params.URL)
       workspaces:
         - name: output
           workspace: sourceCode
-      #  - name: ssh-directory
-      #    workspace: ssh-creds
     
     - name: build-and-push
       taskRef:
         name: buildah
-        kind: ClusterTask
       runAfter: ["git-clone"]
       params:
         - name: TLSVERIFY
@@ -50,5 +43,3 @@ spec:
       workspaces:
         - name: source
           workspace: sourceCode
-      #  - name: dockerconfig
-      #    workspace: dockerconfig
