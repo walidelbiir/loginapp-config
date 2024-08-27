@@ -6,7 +6,8 @@ metadata:
 spec:
   source:
     git:
-      uri: git@github.com:walidelbiir/redhat-loginapp.git
+      uri: https://github.com/walidelbiir/redhat-loginapp.git
+      type: Git
     sourceSecret:
       name: repo-at-github
   serviceAccount: builder
@@ -31,7 +32,9 @@ spec:
           valueFrom:
             secretKeyRef:
               name: redhat-login-credentials
-              key: SERVICE_ACCOUNT
+              key: SERVICEACCOUNT
+        - name : BUILDER_SECRET_MOUNT_PATH
+          value : /tmp/builder-secret
   output:
     to:
       kind: ImageStreamTag

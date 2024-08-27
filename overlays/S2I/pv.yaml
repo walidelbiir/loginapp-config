@@ -1,0 +1,15 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mysql-s2i-pv
+spec:
+  capacity:
+    storage: 4Gi
+  nfs:
+    server: 192.168.195.11
+    path: /mnt/data/nfs/mysql-s2i-pv
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  storageClassName: mysql-s2i

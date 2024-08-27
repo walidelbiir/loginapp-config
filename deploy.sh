@@ -15,6 +15,7 @@ KUSTOMIZE_DIR=$1
 NAMESPACE=$(yq eval '.namespace' $KUSTOMIZE_DIR/kustomization.yaml)
 
 
+
 if [ -z "$NAMESPACE" ]; then
   echo "Namespace not found in kustomization.yaml"
   exit 1
@@ -25,10 +26,20 @@ if kubectl get namespace $NAMESPACE > /dev/null 2>&1; then
   echo "Namespace $NAMESPACE already exists."
 else
   echo "Namespace $NAMESPACE does not exist. Creating..."
-  oc create project $NAMESPACE
+  kubectl create namespace $NAMESPACE
 fi
 
-#oc create clusterrolebinding default-image-puller-$NAMESPACE --clusterrole=system:image-puller --serviceaccount=$NAMESPACE:default
+CLUSTERROLEBINDING_NAME="default-image-puller-$NAMESPACE"
+
+if ! oc get clusterrolebinding "$CLUSTERROLEBINDING_NAME" > /dev/null 2>&1; then
+  echo "ClusterRoleBinding $CLUSTERROLEBINDING_NAME does not exist. Creating..."
+  oc create clusterrolebinding "$CLUSTERROLEBINDING_NAME" --clusterrole=system:image-puller --serviceaccount=$NAMESPACE:default
+else
+  echo "ClusterRoleBinding $CLUSTERROLEBINDING_NAME already exists."
+fi
+
 
 oc apply -k $KUSTOMIZE_DIR
+
+sudo chmod 777 /mnt/data/nfs/* <mdpMachine.txt
 

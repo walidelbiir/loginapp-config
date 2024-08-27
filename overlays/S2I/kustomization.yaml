@@ -1,14 +1,18 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: loginapp-dev
+namespace: loginapp-s2i
 
 generatorOptions:
   disableNameSuffixHash: true
 
 resources:
 - ../../base
+- ./pv.yaml
+- ./pvc.yaml
 
 patches:
 - path: ./patches/image_patch.yaml
+- path: ./patches/mysql_pvc_patch.yaml
+
 

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-docker-pvc
+  name: mysql-s2i-pvc
   namespace: loginapp-dev
 spec:
   accessModes:
@@ -9,4 +9,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: mysql-docker
+  storageClassName: mysql-s2i
