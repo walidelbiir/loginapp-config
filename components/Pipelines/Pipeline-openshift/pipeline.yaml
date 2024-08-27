@@ -21,10 +21,11 @@ spec:
 
 
   tasks:
-
+    #  description: This workspace contains the ssh key for the git repo
     - name: fetch-source
       taskRef:
         name: git-clone
+        kind: ClusterTask
       params:
         - name: URL
           value: $(params.URL)
@@ -39,6 +40,7 @@ spec:
     - name: execute-build
       taskRef:
         name: openshift-client
+        kind: ClusterTask
       params:
         - name: SCRIPT
           value: $(params.SCRIPT)

@@ -8,9 +8,15 @@ spec:
   serviceAccountName: pipeline
   params:
     - name: SCRIPT
-      value: oc start-build login-app-build-docker
+      value: |
+        #!/bin/bash
+        set -e
+        
+        chmod +x build-script.sh
+        build-script.sh
+        
     - name: URL
-      value: git@github.com:walidelbiir/redhat-loginapp.git
+      value: git@github.com:walidelbiir/loginapp-config.git
     - name: TLSVERIFY
       value: false
   workspaces:

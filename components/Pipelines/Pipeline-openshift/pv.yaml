@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: openshift-build-pipeline-pv
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: openshift-build-pipeline-pv
+  nfs:
+    server: 192.168.195.11
+    path: "/mnt/data/nfs/openshift-build-pipeline-pv"
