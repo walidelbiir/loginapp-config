@@ -12,4 +12,4 @@ spec:
   storageClassName: buildpush-pipeline-pv
   nfs:
     server: 192.168.195.11
-    path: "/mnt/data/nfs/buildpush-pipeline-pv
+    path: "/mnt/data/nfs/buildpush-pipeline-pv"
