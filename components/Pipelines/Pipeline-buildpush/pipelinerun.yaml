@@ -23,9 +23,4 @@ spec:
           resources:
             requests:
               storage: 1Gi
-    #- name: ssh-creds
-    #  secret:
-    #    secretName: repo-at-github
-    #- name: dockerconfig
-    #  secret:
-    #    secretName: dockerconfig-secret
+          storageClassName: buildpush-pipeline-pv

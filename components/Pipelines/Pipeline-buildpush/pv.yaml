@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: buildpush-pipeline-pv
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: buildpush-pipeline-pv
+  nfs:
+    server: 192.168.195.11
+    path: "/mnt/data/nfs/buildpush-pipeline-pv
