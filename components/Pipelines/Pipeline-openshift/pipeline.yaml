@@ -27,7 +27,7 @@ spec:
         name: git-clone
         kind: ClusterTask
       params:
-        - name: URL
+        - name: url
           value: $(params.URL)
         - name: TLSVERIFY
           value: $(params.TLSVERIFY)
@@ -41,6 +41,7 @@ spec:
       taskRef:
         name: openshift-client
         kind: ClusterTask
+      runAfter: ["fetch-source"]
       params:
         - name: SCRIPT
           value: $(params.SCRIPT)
