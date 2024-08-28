@@ -5,7 +5,7 @@ metadata:
 spec:
   pipelineRef:
     name: build-openshift-pipeline
-  serviceAccountName: pipeline
+  serviceAccountName: custom-pipeline
   params:
     - name: SCRIPT
       value: |

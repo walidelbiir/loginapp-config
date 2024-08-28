@@ -8,4 +8,5 @@ resources:
   - pipeline.yaml
   - pipelinerun.yaml
   - pv.yaml
+  - customSA.yaml
   
