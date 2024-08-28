@@ -9,7 +9,7 @@ apply_resources() {
 
 # Function to start the build and get the build name
 start_build() {
-    build_name=$(oc start-build buildconfig-name -o name)
+    build_name=$(oc start-build login-app-build-docker -o name)
     echo ${build_name#build.build.openshift.io/}
 }
 
