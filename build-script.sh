@@ -4,7 +4,7 @@ set -e
 
 # Function to apply OC resources
 apply_resources() {
-    oc apply -f /components/DockerBuildStrat/
+    oc apply -f ./components/DockerBuildStrat/
 }
 
 # Function to start the build and get the build name
