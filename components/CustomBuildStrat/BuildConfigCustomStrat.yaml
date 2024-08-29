@@ -37,7 +37,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: github-account-ssh-key
-              key: SSH_KEY
+              key: ssh-privatekey
 
   output:
     to:
