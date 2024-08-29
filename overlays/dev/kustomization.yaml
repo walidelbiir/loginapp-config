@@ -9,5 +9,9 @@ namespace: loginapp-dev
 
 resources:
 - ../../base
+- ./pv.yaml
+- ./pvc.yaml
+
+
 
 
