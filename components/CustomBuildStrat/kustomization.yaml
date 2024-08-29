@@ -20,3 +20,4 @@ secretGenerator:
 - name: github-account-ssh-key
   envs :
   - ssh-key
+  type: Opaque
