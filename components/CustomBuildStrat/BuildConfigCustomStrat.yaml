@@ -33,8 +33,12 @@ spec:
             secretKeyRef:
               name: redhat-login-credentials
               key: SERVICEACCOUNT
-        - name : BUILDER_SECRET_MOUNT_PATH
-          value : /tmp/builder-secret
+        - name : SSH_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-account-ssh-key
+              key: SSH_KEY
+
   output:
     to:
       kind: ImageStreamTag
