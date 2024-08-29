@@ -1,0 +1,15 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mysql-custom-pv
+spec:
+  capacity:
+    storage: 4Gi
+  nfs:
+    server: 192.168.195.11
+    path: /mnt/data/nfs/mysql-custom-pv
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  storageClassName: mysql-custom-pv
