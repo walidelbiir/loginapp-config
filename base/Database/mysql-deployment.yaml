@@ -71,4 +71,4 @@ spec:
       volumes:
       - name: mysql-data
         persistentVolumeClaim:
-          claimName: mysql-argocd-pvc
+          claimName: mysql-docker-pvc
