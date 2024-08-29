@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-app
+  namespace: loginapp-dev
+
+spec:
+  template:
+    spec:
+      containers:
+        - name: login-app
+          image: image-registry.openshift-image-registry.svc:5000/loginapp-dev/tekton-pipeline-image:latest
+
+ 
