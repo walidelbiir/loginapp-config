@@ -33,11 +33,11 @@ spec:
             secretKeyRef:
               name: redhat-login-credentials
               key: SERVICEACCOUNT
-        - name : SSH_TOKEN
+        - name : PAT_KEY
           valueFrom:
             secretKeyRef:
-              name: github-account-ssh-key
-              key: ssh-privatekey
+              name: github-pat
+              key: PAT
 
   output:
     to:

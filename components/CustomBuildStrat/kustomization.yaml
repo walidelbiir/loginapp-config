@@ -11,11 +11,13 @@ resources:
   - ImageStreamCustom.yaml
   - ./CustomImageBuilder/ImageStreamCustom.yaml
   - ./CustomImageBuilder/BuildConfigCustomImage.yaml
-  - ./github-account-ssh.yaml
 
 secretGenerator:
 - name: redhat-login-credentials
   envs:
   - redhat-login.credentials
   type: Opaque
-
+- name: github-pat
+  envs:
+  - github-pat
+  type: Opaque
