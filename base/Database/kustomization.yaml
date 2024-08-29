@@ -5,6 +5,4 @@ namespace: loginapp-dev
 
 resources:
   - ./mysql-deployment.yaml
-  - ./mysql-pvc.yaml
   - ./mysql-service.yaml
-  - ./pv.yaml
