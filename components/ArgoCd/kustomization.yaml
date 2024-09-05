@@ -8,4 +8,3 @@ namespace: openshift-gitops
   
 resources:
   - ./DevApp.yaml
-  - ./repo-secret.yaml
