@@ -7,7 +7,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: login-app-docker-strat:latest
+      name: login-app-docker-strat
   source:
     type: Git
     git:
